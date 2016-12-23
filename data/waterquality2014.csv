@@ -1,0 +1,53 @@
+Type,Chemical,Unit,Maximum Allowed,Goal,Average Level Detected,Highest Level Detected,Range Detected,Florence Plant,Platte South Plant,Peaking Wells,Likely source(s)
+Regulated,Total Coliform bacteria, %, 5% positive,0,,0.63,,,,,Bacteria naturally present in the environment; used as an indicator that other potentially harmful bacteria may be present.
+Regulated,E. Coli bacteria,,,0,,0,,,,,Naturally present in the environment.
+Regulated,Lead,ppb,15,0,,6.1,1.31-9.69,,,, Erosion of natural deposits; leaching from wood preservatives; corrosion of household plumbing systems.
+Regulated,Copper,ppm,1.3,1.3,,0.0208,0.0053-0.0821,,,,Erosion of natural deposits; leaching from wood preservatives; corrosion of household plumbing systems.
+Regulated,Turbidity,NTU,1,NA,,0.26,,,,,Soil runoff.
+Regulated,Arsenic,ppb,10,0,,4.15,<2-4.15,,,,Runoff from orchards; natural deposits; runoff from glass and electronic production wastes.
+Regulated,Barium,ppm,2,2,,0.18,0.03-0.18,,,,Discharge of drilling wastes; discharge from metal refineries; erosion of natural deposits.
+Regulated,Chromium,ppb,100,100,,16.5,<0.2-16.5,,,,Discharge from chemical and agricultural chemical factories.
+Regulated,Fluoride,ppm,4,4,,0.92,0.75-0.92,,,,Erosion of natural deposits; water additive to promote strong teeth; fertilizer discharge.
+Regulated,Gross Alpha,pCi/L,15,0,,7.2,<1.2-7.20,,,,Erosion of natural deposits.
+Regulated,Radium (Ra 226 plus Ra 228),pCi/L,5,0,,3.1,<1.0-3.1,,,,Erosion of natural deposits.
+Regulated,Nitrate and Nitrite total (as Nitrogen),ppm,10,10,,3.7,0.29-3.7,,,,"Runoff from fertilizer use; leaching from septic tanks, sewage; erosion of natural deposits."
+Regulated,Selenium,ppb,50,50,,7.33,<5.0-7.33,,,,
+Regulated,Sodium,ppm,500,NA,,101,35-101,,,,"An element of the alkali metal group found in nature, soil, rocks and other deposits."
+Regulated,Trihaloacetic acids (HAA5s),ppb,60,NA,,21.6,8.5-38.2,,,,By-product of drinking water chlorination.
+Regulated,Trihalomethanes total (TTHMs),ppb,80,NA,,42.3,23.2-74.1,,,,By-product of drinking water chlorination.
+Unregulated,Nickel,ppm,,,0.00155,, 0.00113-0.00177,,,,
+Unregulated,Bromochlooacetic acid,ppb,,,5.35,, 3.24-9.85,,,,
+Unregulated,Bromodichloromethane,ppb,,,10.7,, 6.42-21.3,,,,
+Unregulated,Bromoform,ppb,,,0.71,, <0.5-2.02,,,,
+Unregulated,Chloroform,ppb,,,23.4,, 7.07-47.0,,,,
+Unregulated,Dichoroacetic acid,ppb,,,1.76,, <0.5-3.6,,,,
+Unregulated,Dibromochloromethane,ppb,,,5,, 1.32-9.38,,,,
+Unregulated,Dibromoacetic acid,ppb,,,14.8,, 4.51-24.8,,,,
+Unregulated,Monobromoacetic acid,ppb,,,1.04,, <1.0-2.12,,,,
+Unregulated,N-Nitrosodimethylamine (NDMA),ppb,,,0.0023,, <0.0020-0.0039,,,,
+Unregulated,Monochloroacetic acid,ppb,,,2.09,, <2.0-8.21,,,,
+Unregulated,Total Organic Carbon (TOC),ppm,,,2.82,, 2.50-3.00,,,,
+Unregulated,Trichloroacetic acid,ppb,,,3.6,, 1.22-8.12,,,,
+Unregulated,Molybdenum,ppb,,,3.62,, 3.1-3.8,,,,
+Unregulated,Radium-226,pCi/l,,, <1.0,, <1.0,,,,
+Unregulated,Radium-228,pCi/l,,,0.91,, <0.9-2.50,,,,
+Unregulated,Strontium,ppb,,,320,, 280-380,,,,
+Unregulated,Sulfate,ppm,,,112,, 11.6-220,,,,
+Unregulated,Vanadium,ppb,,,3.74,, 1.7-5.0,,,,
+Mineral,pH,pH units,,,8.87,, 8.59-9.16,,,,
+Mineral,Alkalinity (total) as CaCO3,ppm,,,106,, 41-143,,,,
+Mineral,Aluminum,ppm,,,0.05,, <0.01-0.23,,,,
+Mineral,Calcium,ppm,,,43,, 31-55,,,,
+Mineral,Chloride,ppm,,,27,, 17-65,,,,
+Mineral,Color (in cobalt platinum units),ppm,,,2,, 1-4,,,,
+Mineral,Dissolved Solids,ppm,,,431,, 360-560,,,,
+Mineral,Hardness (total) as CaCO3,grains per gallon,,,9,, 8-12,,,,
+Mineral,Iron,ppm,,,0.02,, <0.02-0.16,,,,
+Mineral,Magnesium,ppm,,,13,, 7-20,,,,
+Mineral,Manganese,ppm,,, <0.02,, <0.02-0.03,,,,
+Mineral,Phosphate,ppm,,,0.17,, <0.05-0.31,,,,
+Mineral,Silica,ppm,,,22.4,, 3.8-34.7,,,,
+Mineral,Spec. Conductance @25 deg. C.,umhos,,,562,, 441-750,,,,
+Mineral,Temperature,degrees Celsius,,,14.6,, 1.2-26.4,,,,
+Mineral,Zinc,ppm,,,9,, 6-13,,,,
+Mineral,Potassium,ppm,,, <0.01,, <0.01,,,,

@@ -1,0 +1,50 @@
+Type,Chemical,Unit,Maximum Allowed,Goal,Average Level Detected,Highest Level Detected,Range Detected,Florence Plant,Platte South Plant,Peaking Wells,Likely source(s)
+Regulated,Arsenic,ppb,10,NA,,6.7,,<2.0,5.7,6.7 - <2.0,Runoff from orchards; natural deposits; runoff from glass and electronic production wastes.
+Regulated,Atrazine (b), ppb,3,3,,3.1,, 0.8 - <0.08, 3.1 - <0.08, 0.7 - <0.08," ""Runoff from herbicide used on row crops."""
+Regulated,Barium,ppm,2,2,,0.25,,0.05,0.1,0.25 - 0.12,Discharge of drilling wastes; discharge from metal refineries; erosion of natural deposits.
+Regulated,Chromium,ppb,100,100,,13.5,,2.4,4.9,13.5 - 5.9,Discharge from chemical and agricultural chemical factories.
+Regulated,Dibronochloropropane (DBCP), ppt,200,200,,0.01,,<0.01 - 0.01,<0.01,<0.01,"Runoff, leaching from soil fumigant used on soybeans, cotton, pineapples and orchards."
+Regulated,Ethylbenzene,ppm,700,700,,1.2,,<0.5,<0.5,1.2 - <0.5,Drainage from petroleum refineries.
+Regulated,Fluoride,ppm,4,4,,1.2,,1.2 - 0.6,1.2 - 0.6,0.3 - <0.2,Water additive to promote strong teeth; erosion of natural deposits; discharge from fertilizer and aluminum factories.
+Regulated,Gross Alpha,pCi/L,15,0,,5.8,,<1.0,4.8,5.8 - <1.0,Erosion of natural deposits.
+Regulated,Nitrate and Nitrite total (as Nitrogen),ppm,10,10,,4.5,,2.4,1.9,4.5 - 0.2,"Runoff from fertilizer use; leaching from septic tanks, sewage; erosion of natural deposits."
+Regulated,Selenium,ppb,50,50,,5.4,,<5.0,5.4,<5.0,Discharge from petroleum and metal refineries; erosion natural of deposits; discharge from mines.
+Regulated,Sodium, ppm,500,NA,,71,,71 - 28,56 - 31,21 - 18,"An element of the alkali metal group found in nature, soil, rocks and other deposits."
+Regulated,Trihaloacetic acids (HAA5s),ppb,60, NA,,31,,71 - 7,71 - 7,71 - 7,By-product of drinking water chlorination.
+Regulated,Trihalomethanes total (TTHMs),ppb,80,NA,,60,,113 - 20,113 - 20,113 - 20,By-product of drinking water chlorination.
+Regulated,Turbidity,NTU,1,NA,,0.26,,0.26 - <0.08,NA,NA,Soil runoff.
+Regulated,Xylenes meta, ppm,10,10,,0.004,,<0.0005,<0.0005,0.004 - <0.0005,Discharge from petroleum and chemical factories.
+Regulated,Xylenes ortho, ppm,10,10,,0.0013,,<0.0005,<0.0005,0.0013 - <0.0005,Discharge from petroleum and chemical factories.
+Regulated,Total Coliform bacteria," ""%"""," ""5% positive""",0,,0.3,, ,,,Bacteria naturally present in the environment; used as an indicator that other potentially harmful bacteria may be present.
+Regulated,E. Coli bacteria,,,0,,0,,,,,Naturally present in the environment.
+Regulated,Copper, ppm,1.3,1.3,,0.03,,,,, Corrosion of household plumbing; erosion of natural deposits; leaching from wood preservatives.
+Regulated,Lead, ppb,15,0,,6.5,, ,,,Corrosion of household plumbing; erosion of natural deposits.
+Unregulated,Bromochloroacetic acid,ppb,NA,NA,,13,,13 - 2.6,13 - 2.6,13 - 2.6,
+Unregulated,Bromodichloromethane,ppb,NA,0,,21,,21 - 7.1,21 - 7.1,3.7 - <0.5,
+Unregulated,Chloroform,ppb,NA,NA,,89,,89 - 8.9,89 - 8.9,10 - <0.5,
+Unregulated,Dibromoacetic acid,ppb,NA,NA,,1.9,,1.9 - <0.25,1.9 - <0.25,1.9 - <0.25,
+Unregulated,Dibromochloromethane,ppb,NA,60,,6.4,,6.4 - 2.8,6.4 - 2.8,1.2 - <0.5,
+Unregulated,Dichloroacetic acid,ppb,NA,0,,50,,50 - 4.7,50 - 4.7,50 - 4.7,
+Unregulated,Metolachlor,ppb,NA,NA,,1.4,,1.4 - <0.1,1.4 - <0.1,<0.1,
+Unregulated,Monobromoacetic acid,ppb,NA,NA,,2.4,,2.4 - <1.0,2.4 - <1.0,2.4 - <1.0,
+Unregulated,Monochloroacetic acid,ppb,NA,NA,,4.3,,4.3 - <3.0,4.3 - <3.0,4.3 - <3.0,
+Unregulated,Nickel,ppb,NA,NA,,4.6,,2.4,2.3,4.6 - <2.0,
+Unregulated,Total Organic Carbon,ppm,NA,NA,,4.3,,4.3 - 2.4 , ,,
+Unregulated,Trichloroacetic acid,ppb,NA,300,,16,,16 - 1.2,16 - 1.2,16 - 1.2,
+Unregulated,Sulfate,ppm,NA,NA,,210,,210,64,41 - 11,
+Mineral,pH,(in pH units),8.72,8.79,,7.2,,,,,
+Mineral,Alkalinity (total) as CaCO3,ppm,94,140,,264,,,,,
+Mineral,Aluminum,ppm,0.24,<0.03,,<0.03,,,,,
+Mineral,Calcium,ppm,49,46,,90,,,,,
+Mineral,Chloride,ppm,23,41,,8.6,,,,,
+Mineral,Color (in cobalt platinum units),ppm,1,4,,1,,,,,
+Mineral,Dissolved Solids (total calculated),ppm,457,411,,574,,,,,
+Mineral,Hardness (total) as CaCO3,grains per gallon,12,10,,17,,,,,
+Mineral,Iron,ppm,<0.02,<0.02,,0.03,,,,,
+Mineral,Magnesium,ppm,18,12,,20,,,,,
+Mineral,Manganese,ppm,<0.002,<0.002,,<0.02,,,,,
+Mineral,Phosphate,ppm,0.05,0.46,,0.56,,,,,
+Mineral,Silica,ppm,9.9,25.4,,32.1,,,,,
+Mineral,Spec. Conductance (@ 25 Deg.C.),umhos,644,526,,560,,,,,
+Mineral,Temperature,degrees Celsius,14.6,16.1,,,,,,,
+Mineral,Zinc,ppm,<0.002,<0.002,,<0.01,,,,,
