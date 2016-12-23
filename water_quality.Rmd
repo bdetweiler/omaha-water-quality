@@ -1,0 +1,268 @@
+---
+title: "Water Quality"
+author: "Brian Detweiler"
+date: "December 23, 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+require(scales)
+library(data.table)
+library(dplyr)
+
+waterquality <- readRDS('waterquality.rds')
+water <- waterquality %>% select(-Range.Detected, 
+                                 -Florence.Plant, 
+                                 -Platte.South.Plant, 
+                                 -Peaking.Wells, 
+                                 -Likely.source.s.)
+water$year <- format(water$year, "%Y")
+
+regulated <- water %>% filter(Type == 'Regulated')
+unregulated <- water %>% filter(Type == 'Unregulated')
+minerals <- water %>% filter(Type == 'Mineral')
+
+plot.quality <- function(chemical) {
+  quality <- water %>% filter(Chemical == chemical)
+  max.allowed <- quality$Maximum.Allowed[1]
+  units <- quality$Unit[1]
+
+  ggplot(quality, aes(x = year, y = Highest.Level.Detected)) +
+    geom_bar(stat="identity") +
+    geom_errorbar(aes(ymin = range.detected.from, ymax = range.detected.to), width = 0.2) +
+    geom_hline(yintercept=max.allowed, col="red") +
+    labs(y=paste0("Highest Level Detected (", units, ")"), x="Year")
+}
+
+plot.quality.avg <- function(chemical) {
+  quality <- water %>% filter(Chemical == chemical)
+  max.allowed <- quality$Maximum.Allowed[1]
+  units <- quality$Unit[1]
+
+  ggplot(quality, aes(x = year, y = Average.Level.Detected)) +
+    geom_bar(stat="identity") +
+    geom_errorbar(aes(ymin = range.detected.from, ymax = range.detected.to), width = 0.2) +
+    geom_hline(yintercept=max.allowed, col="red") +
+    labs(y=paste0("Highest Level Detected (", units, ")"), x="Year")
+}
+
+
+```
+
+## MUD Water Quality
+
+The Metropolitan Utilities District is a public utilities district responsible for all of Omaha, Nebraska's utilities, from water, to sewage, to gas (not electricity, which is handled by OPPD). MUD releases annual water quality testing reports in PDF format.
+
+I thought it might be interesting to compile this data and visualize it.
+
+Unfortunately, MUD only provides the summary results from the tests, not the full testing data.
+
+The first task was to get the data into a usable format. This required a lot of copy-pasting and manual manipulation to get it out of PDF format and into a CSV. This took a few hours, and thankfully, the format was fairly consistent from year to year, which made the data collection slightly tedius but manageable.
+
+The reports break down chemical levels into three groups - **Regulated**, [Unregulated](water_quality_unregulated.html), and [Minerals](water_quality_minerals.html). 
+
+## Reproducibility
+
+To reproduce these results, you can find the raw PDFs, the compiled data, the cleaning script, and this report at [https://github.com/bdetweiler/omaha-water-quality](https://github.com/bdetweiler/omaha-water-quality).
+
+# Regulated Chemicals
+
+## Lead
+
+By Nebraska law, lead and copper are monitored every 3 years, since these levels do not change frequently, according to the reports. 
+
+```{r echo=FALSE, warning=FALSE}
+plot.quality('Lead')
+```
+
+The maximum allowable level is 15 ppb. The error bars indicate the range of levels found. The 2010 - 2012 samples were taken July 7-16, 2010. No explanation was given for the large range indicated by the error bars.
+ 
+## Copper
+
+```{r echo=FALSE, warning=FALSE}
+plot.quality('Copper')
+```
+
+## Total Coliform Bacteria
+
+```{r echo=FALSE, warning=FALSE}
+plot.quality('Total Coliform bacteria')
+```
+
+## Turbidity
+According to [Wikipedia](https://en.wikipedia.org/wiki/Turbidity)
+
+> Turbidity is the cloudiness or haziness of a fluid caused by large numbers of individual particles that are generally invisible to the naked eye, similar to smoke in air. The measurement of turbidity is a key test of water quality.
+
+Turbidity is measured in Nephelometric turbidity units (NTUs).
+
+```{r echo=FALSE, warning=FALSE}
+plot.quality('Turbidity')
+```
+
+## Arsenic
+
+```{r echo=FALSE, warning=FALSE}
+plot.quality('Arsenic')
+```
+
+## Atrazine
+
+Note the high value in 2007. This was explained in the report:
+
+> This number is based on a running average for one year. We had a high value of 3.1 ppb at the Platte South Plant in June, however with the plant's annual average of 0.5 ppb, we did not exceed the maximum.
+
+```{r echo=FALSE, warning=FALSE}
+plot.quality('Atrazine')
+```
+
+## Barium
+
+```{r echo=FALSE, warning=FALSE}
+plot.quality('Barium')
+```
+
+## Chromium
+
+```{r echo=FALSE, warning=FALSE}
+plot.quality('Chromium')
+```
+
+## Chromium VI
+
+```{r echo=FALSE, warning=FALSE}
+plot.quality('Chromium VI')
+```
+
+## Fluoride
+
+```{r echo=FALSE, warning=FALSE}
+plot.quality('Fluoride')
+```
+
+## Gross Alpha (radioactive contaminants)
+
+```{r echo=FALSE, warning=FALSE}
+plot.quality('Gross Alpha')
+```
+
+## Nitrate and Nitrite total (as Nitrogen)
+
+```{r echo=FALSE, warning=FALSE}
+plot.quality('Nitrate and Nitrite total (as Nitrogen)')
+```
+
+## Selenium
+
+```{r echo=FALSE, warning=FALSE}
+plot.quality('Selenium')
+```
+
+## Sodium
+
+```{r echo=FALSE, warning=FALSE}
+plot.quality('Sodium')
+```
+
+## Trihaloacetic acids (HAA5s)
+
+This is a byproduct of drinking water chlorination.
+
+> Some people who drink water containing haloacetic acids in excess of the MCL over many years may have an increased risk of getting cancer.
+
+No explanation was given for the detected values above the Maximum Contaminant Level (MCL) 2008-2010.
+
+```{r echo=FALSE, warning=FALSE}
+plot.quality('Trihaloacetic acids (HAA5s)')
+```
+
+## Trihalomethanes total (TTHMs)
+
+This is a byproduct of drinking water chlorination.
+
+> Some people who drink water containing trihalomethanes in excess of the MCL over many years may experience problems with their liver, kidneys or central nervous system, and may have an increased risk of getting cancer.
+
+No explanation was given for the detected values above the Maximum Contaminant Level (MCL) 2008-2010.
+
+```{r echo=FALSE, warning=FALSE}
+plot.quality('Trihalomethanes total (TTHMs)')
+```
+
+## Fecal Coliform or E. Coli 
+
+2006 had one sample test positive for E. Coli. 
+
+> e) A violation occurs when a routine sample and confirmation samples are total coliform positive and one also is E. coli positive.
+
+No other information was given.
+
+```{r echo=FALSE, warning=FALSE}
+plot.quality('E. Coli bacteria')
+```
+
+## Dibronochloropropane (DBCP)
+
+```{r echo=FALSE, warning=FALSE}
+plot.quality('Dibronochloropropane (DBCP)')
+```
+
+## Ethylbenzene
+
+```{r echo=FALSE, warning=FALSE}
+plot.quality('Ethylbenzene')
+```
+
+## Xylenes meta
+
+```{r echo=FALSE, warning=FALSE}
+plot.quality('Xylenes meta')
+```
+
+
+## Xylenes ortho
+
+```{r echo=FALSE, warning=FALSE}
+plot.quality('Xylenes ortho')
+```
+
+
+## Radium (Ra 226 plus Ra 228)
+
+```{r echo=FALSE, warning=FALSE}
+plot.quality('Radium (Ra 226 plus Ra 228)')
+```
+
+## Simazine
+```{r echo=FALSE, warning=FALSE}
+plot.quality('Simazine')
+```
+
+## Diethylhexyl
+
+> Some people who drink water containing di(2-ethylhexyl) phthalate in excess of the MCL over many years may have problems with their liver or experience reproductive difficulties, and may have an increased risk of getting cancer. An extensive investigation indicated a sampling error may have caused a high detection.
+
+> Not detected on previous and subsequent confirmation tests.
+
+This could have been a bad sample. 
+
+```{r echo=FALSE, warning=FALSE}
+plot.quality('Diphthalate')
+```
+
+## Heptachlor Expoxide
+
+> Not detected on previous and subsequent confirmation tests.
+
+```{r echo=FALSE, warning=FALSE}
+plot.quality('Heptachlor Expoxide')
+```
+
+## Heptachlor Expoxide
+
+> Not detected on previous and subsequent confirmation tests.
+
+```{r echo=FALSE, warning=FALSE}
+plot.quality('Heptachlor Expoxide')
+```

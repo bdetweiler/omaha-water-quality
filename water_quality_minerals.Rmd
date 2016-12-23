@@ -1,0 +1,178 @@
+---
+title: "Water Quality"
+author: "Brian Detweiler"
+date: "December 23, 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+require(scales)
+library(data.table)
+library(dplyr)
+
+waterquality <- readRDS('waterquality.rds')
+water <- waterquality %>% select(-Range.Detected, 
+                                 -Florence.Plant, 
+                                 -Platte.South.Plant, 
+                                 -Peaking.Wells, 
+                                 -Likely.source.s.)
+water$year <- format(water$year, "%Y")
+
+regulated <- water %>% filter(Type == 'Regulated')
+unregulated <- water %>% filter(Type == 'Unregulated')
+mineral <- water %>% filter(Type == 'Mineral')
+unique(as.character(mineral$Chemical))
+
+plot.quality <- function(chemical) {
+  quality <- water %>% filter(Chemical == chemical)
+  max.allowed <- quality$Maximum.Allowed[1]
+  units <- quality$Unit[1]
+
+  ggplot(quality, aes(x = year, y = Highest.Level.Detected)) +
+    geom_bar(stat="identity") +
+    geom_errorbar(aes(ymin = range.detected.from, ymax = range.detected.to), width = 0.2) +
+    geom_hline(yintercept=max.allowed, col="red") +
+    labs(y=paste0("Highest Level Detected (", units, ")"), x="Year")
+}
+
+plot.quality.avg <- function(chemical) {
+  quality <- water %>% filter(Chemical == chemical)
+  max.allowed <- quality$Maximum.Allowed[1]
+  units <- quality$Unit[1]
+
+  ggplot(quality, aes(x = year, y = Average.Level.Detected)) +
+    geom_bar(stat="identity") +
+    geom_errorbar(aes(ymin = range.detected.from, ymax = range.detected.to), width = 0.2) +
+    geom_hline(yintercept=max.allowed, col="red") +
+    labs(y=paste0("Highest Level Detected (", units, ")"), x="Year")
+}
+
+
+```
+
+## MUD Water Quality
+
+The Metropolitan Utilities District is a public utilities district responsible for all of Omaha, Nebraska's utilities, from water, to sewage, to gas (not electricity, which is handled by OPPD). MUD releases annual water quality testing reports in PDF format.
+
+I thought it might be interesting to compile this data and visualize it.
+
+Unfortunately, MUD only provides the summary results from the tests, not the full testing data.
+
+The first task was to get the data into a usable format. This required a lot of copy-pasting and manual manipulation to get it out of PDF format and into a CSV. This took a few hours, and thankfully, the format was fairly consistent from year to year, which made the data collection slightly tedius but manageable.
+
+The reports break down chemical levels into three groups - [Regulated](water_quality.html), [Unregulated](water_quality_unregulated.html), and **Minerals**.
+
+## Reproducibility
+
+To reproduce these results, you can find the raw PDFs, the compiled data, the cleaning script, and this report at [https://github.com/bdetweiler/omaha-water-quality](https://github.com/bdetweiler/omaha-water-quality).
+
+# Minerals
+
+## pH Levels
+
+According to [Apec Water](http://www.freedrinkingwater.com/water-education/quality-water-ph-page2.htm)
+
+> The pH of pure water is 7. In general, water with a pH lower than 7 is considered acidic, and with a pH greater than 7 is considered basic. The normal range for pH in surface water systems is 6.5 to 8.5, and the pH range for groundwater systems is between 6 to 8.5.
+
+
+```{r echo=FALSE, warning=FALSE}
+plot.quality.avg('pH')
+```
+
+## Alkalinity (total) as CaCO3
+
+```{r echo=FALSE, warning=FALSE}
+plot.quality.avg('Alkalinity (total) as CaCO3')
+```
+
+## Aluminum
+
+```{r echo=FALSE, warning=FALSE}
+plot.quality.avg('Aluminum')
+```
+
+## Calcium
+
+```{r echo=FALSE, warning=FALSE}
+plot.quality.avg('Calcium')
+```
+
+## Chloride
+
+```{r echo=FALSE, warning=FALSE}
+plot.quality.avg('Chloride')
+```
+
+## Color (in cobalt platinum units)
+
+```{r echo=FALSE, warning=FALSE}
+plot.quality.avg('Color (in cobalt platinum units)')
+```
+
+## Dissolved Solids
+
+```{r echo=FALSE, warning=FALSE}
+plot.quality.avg('Dissolved Solids')
+```
+
+## Hardness (total) as CaCO3
+
+```{r echo=FALSE, warning=FALSE}
+plot.quality.avg('Hardness (total) as CaCO3')
+```
+
+## Iron
+
+```{r echo=FALSE, warning=FALSE}
+plot.quality.avg('Iron')
+```
+
+## Magnesium
+
+```{r echo=FALSE, warning=FALSE}
+plot.quality.avg('Magnesium')
+```
+
+## Manganese
+
+```{r echo=FALSE, warning=FALSE}
+plot.quality.avg('Manganese')
+```
+
+## Phosphate
+
+```{r echo=FALSE, warning=FALSE}
+plot.quality.avg('Phosphate')
+```
+
+## Silica
+
+```{r echo=FALSE, warning=FALSE}
+plot.quality.avg('Silica')
+```
+
+## Spec. Conductance @25 deg. C.
+
+```{r echo=FALSE, warning=FALSE}
+plot.quality.avg('Spec. Conductance @25 deg. C.')
+```
+
+## Temperature
+
+```{r echo=FALSE, warning=FALSE}
+plot.quality.avg('Temperature')
+```
+
+## Zinc
+
+```{r echo=FALSE, warning=FALSE}
+plot.quality.avg('Zinc')
+```
+
+## Potassium
+
+```{r echo=FALSE, warning=FALSE}
+plot.quality.avg('Potassium')
+```

@@ -1,0 +1,212 @@
+---
+title: "Water Quality"
+author: "Brian Detweiler"
+date: "December 23, 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+require(scales)
+library(data.table)
+library(dplyr)
+
+waterquality <- readRDS('waterquality.rds')
+water <- waterquality %>% select(-Range.Detected, 
+                                 -Florence.Plant, 
+                                 -Platte.South.Plant, 
+                                 -Peaking.Wells, 
+                                 -Likely.source.s.)
+water$year <- format(water$year, "%Y")
+
+regulated <- water %>% filter(Type == 'Regulated')
+unregulated <- water %>% filter(Type == 'Unregulated')
+minerals <- water %>% filter(Type == 'Mineral')
+
+plot.quality <- function(chemical) {
+  quality <- water %>% filter(Chemical == chemical)
+  max.allowed <- quality$Maximum.Allowed[1]
+  units <- quality$Unit[1]
+
+  ggplot(quality, aes(x = year, y = Highest.Level.Detected)) +
+    geom_bar(stat="identity") +
+    geom_errorbar(aes(ymin = range.detected.from, ymax = range.detected.to), width = 0.2) +
+    geom_hline(yintercept=max.allowed, col="red") +
+    labs(y=paste0("Highest Level Detected (", units, ")"), x="Year")
+}
+
+plot.quality.avg <- function(chemical) {
+  quality <- water %>% filter(Chemical == chemical)
+  max.allowed <- quality$Maximum.Allowed[1]
+  units <- quality$Unit[1]
+
+  ggplot(quality, aes(x = year, y = Average.Level.Detected)) +
+    geom_bar(stat="identity") +
+    geom_errorbar(aes(ymin = range.detected.from, ymax = range.detected.to), width = 0.2) +
+    geom_hline(yintercept=max.allowed, col="red") +
+    labs(y=paste0("Highest Level Detected (", units, ")"), x="Year")
+}
+
+
+```
+
+## MUD Water Quality
+
+The Metropolitan Utilities District is a public utilities district responsible for all of Omaha, Nebraska's utilities, from water, to sewage, to gas (not electricity, which is handled by OPPD). MUD releases annual water quality testing reports in PDF format.
+
+I thought it might be interesting to compile this data and visualize it.
+
+Unfortunately, MUD only provides the summary results from the tests, not the full testing data.
+
+The first task was to get the data into a usable format. This required a lot of copy-pasting and manual manipulation to get it out of PDF format and into a CSV. This took a few hours, and thankfully, the format was fairly consistent from year to year, which made the data collection slightly tedius but manageable.
+
+The reports break down chemical levels into three groups - [Regulated](water_quality.html), **Unregulated**, and [Minerals](water_quality_minerals.html). 
+
+## Reproducibility
+
+To reproduce these results, you can find the raw PDFs, the compiled data, the cleaning script, and this report at [https://github.com/bdetweiler/omaha-water-quality](https://github.com/bdetweiler/omaha-water-quality).
+
+# Unregulated Chemicals
+
+## Nickel
+
+Note, in 2010, units for Nickel changed from parts per billion to parts per million. These were standardized to parts per billion, but highlights a clear decline in nickel contamination over the years.
+
+```{r echo=FALSE, warning=FALSE}
+plot.quality('Nickel')
+```
+
+## Bromochloroacetic acid
+
+```{r echo=FALSE, warning=FALSE}
+plot.quality('Bromochloroacetic acid')
+```
+
+## Bromodichloromethane
+
+```{r echo=FALSE, warning=FALSE}
+plot.quality.avg('Bromodichloromethane')
+```
+
+## Bromoform
+
+```{r echo=FALSE, warning=FALSE}
+plot.quality.avg('Bromoform')
+```
+
+## Chloroform
+
+```{r echo=FALSE, warning=FALSE}
+plot.quality.avg('Chloroform')
+```
+
+## Dibromoacetic acid
+
+```{r echo=FALSE, warning=FALSE}
+plot.quality.avg('Dibromoacetic acid')
+```
+
+## Dibromochloromethane
+
+```{r echo=FALSE, warning=FALSE}
+plot.quality.avg('Dibromochloromethane')
+```
+
+## Dichloroacetic acid
+
+```{r echo=FALSE, warning=FALSE}
+plot.quality('Dichloroacetic acid')
+```
+
+## Metolachlor
+
+```{r echo=FALSE, warning=FALSE}
+plot.quality.avg('Metolachlor')
+```
+
+## Monochloroacetic acid
+
+```{r echo=FALSE, warning=FALSE}
+plot.quality.avg('Monochloroacetic acid')
+```
+
+## Total Organic Carbon (TOC)
+
+```{r echo=FALSE, warning=FALSE}
+plot.quality.avg('Total Organic Carbon (TOC)')
+```
+
+## Trichloroacetic acid
+
+```{r echo=FALSE, warning=FALSE}
+plot.quality.avg('Trichloroacetic acid')
+```
+
+## Sulfate
+
+```{r echo=FALSE, warning=FALSE}
+plot.quality.avg('Sulfate')
+```
+
+## Monobromoacetic acid
+
+```{r echo=FALSE, warning=FALSE}
+plot.quality.avg('Monobromoacetic acid')
+```
+
+## Bromochlooacetic acid
+
+```{r echo=FALSE, warning=FALSE}
+plot.quality.avg('Bromochlooacetic acid')
+```
+
+## Dichoroacetic acid
+
+```{r echo=FALSE, warning=FALSE}
+plot.quality.avg('Dichoroacetic acid')
+```
+
+## Radium-228
+
+```{r echo=FALSE, warning=FALSE}
+plot.quality.avg('Radium-228')
+```
+
+## Radium-226
+
+```{r echo=FALSE, warning=FALSE}
+plot.quality.avg('Radium-226')
+```
+
+## N-Nitrosodimethylamine (NDMA)
+
+```{r echo=FALSE, warning=FALSE}
+plot.quality.avg('N-Nitrosodimethylamine (NDMA)')
+```
+
+## Chlorate
+
+```{r echo=FALSE, warning=FALSE}
+plot.quality.avg('Chlorate')
+```
+
+## Molybdenum
+
+```{r echo=FALSE, warning=FALSE}
+plot.quality.avg('Molybdenum')
+```
+
+## Strontium
+
+```{r echo=FALSE, warning=FALSE}
+plot.quality.avg('Strontium')
+```
+
+## Vanadium
+
+```{r echo=FALSE, warning=FALSE}
+plot.quality.avg('Vanadium')
+```
+
+

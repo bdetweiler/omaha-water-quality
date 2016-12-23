@@ -1,5 +1,5 @@
 Type,Chemical,Unit,Maximum Allowed,Goal,Average Level Detected,Highest Level Detected,Range Detected,Florence Plant,Platte South Plant,Peaking Wells,Likely source(s)
-Regulated,Total Coliform bacteria, %, 5% positive,0,,0.62,,,,,Bacteria naturally present in the environment; used as an indicator that other potentially harmful bacteria may be present.
+Regulated,Total Coliform bacteria,%,5,0,,0.62,,,,,Bacteria naturally present in the environment; used as an indicator that other potentially harmful bacteria may be present.
 Regulated,E. Coli bacteria,,,0,,0,,,,,Naturally present in the environment.
 Regulated,Lead,ppb,15,0,,6.1,1.31-9.69,,,, Erosion of natural deposits; leaching from wood preservatives; corrosion of household plumbing systems.
 Regulated,Copper,ppm,1.3,1.3,,0.0208,0.0053-0.0821,,,,Erosion of natural deposits; leaching from wood preservatives; corrosion of household plumbing systems.
@@ -7,6 +7,7 @@ Regulated,Turbidity,NTU,1,NA,,0.24,,,,,Soil runoff.
 Regulated,Arsenic,ppb,10,0,,5.07,<2-5.07,,,,Runoff from orchards; natural deposits; runoff from glass and electronic production wastes.
 Regulated,Barium,ppm,2,2,,0.18,0.03-0.18,,,,Discharge of drilling wastes; discharge from metal refineries; erosion of natural deposits.
 Regulated,Chromium,ppb,100,100,,16.5,<0.2-16.5,,,,Discharge from chemical and agricultural chemical factories.
+Regulated,Chromium VI,ppb,100,100,,1.4,0.13-1.40,,,,Discharge from chemical and agricultural chemical factories.
 Regulated,Fluoride,ppm,4,4,,0.92,0.75-0.92,,,,Erosion of natural deposits; water additive to promote strong teeth; fertilizer discharge.
 Regulated,Gross Alpha,pCi/L,15,0,,7.2,<1.2-7.20,,,,Erosion of natural deposits.
 Regulated,Radium (Ra 226 plus Ra 228),pCi/L,5,0,,2.1,<0.1-2.1,,,,Erosion of natural deposits.
@@ -15,8 +16,8 @@ Regulated,Selenium,ppb,50,50,,7.33,<5.0-7.33,,,,
 Regulated,Sodium,ppm,500,NA,,105,37-105,,,,"An element of the alkali metal group found in nature, soil, rocks and other deposits."
 Regulated,Trihaloacetic acids (HAA5s),ppb,60,NA,,21.3,10.4-41.3,,,,By-product of drinking water chlorination.
 Regulated,Trihalomethanes total (TTHMs),ppb,80,NA,,37,23.7-70.1,,,,By-product of drinking water chlorination.
-Regulated,Azratine,ppb,3,3,,0.13,<0.03-0.13,,,,
-Unregulated,Nickel,ppm,,,0.00467,, 0.00113-0.0289,,,,
+Regulated,Atrazine,ppb,3,3,,0.13,<0.03-0.13,,,,
+Unregulated,Nickel,ppb,,,0.00000467,,0.00000113-0.0000289,,,,
 Unregulated,Bromochlooacetic acid,ppb,,,5.7,, 3.91-9.14,,,,
 Unregulated,Bromodichloromethane,ppb,,,10,, 7.43-19.0,,,,
 Unregulated,Bromoform,ppb,,,0.84,, <0.5-2.20,,,,
@@ -28,8 +29,8 @@ Unregulated,Monobromoacetic acid,ppb,,,2.08,, <2.0-2.78,,,,
 Unregulated,Total Organic Carbon (TOC),ppm,,,2.93,, 2.30-3.40,,,,
 Unregulated,Trichloroacetic acid,ppb,,,3.96,, 1.33-8.61,,,,
 Unregulated,Molybdenum,ppb,,,3.62,, 3.1-3.8,,,,
-Unregulated,Radium-226,pCi/l,,,0.6,, <0.1-0.97,,,,
-Unregulated,Radium-228,pCi/l,,,0.79,, <0.6-1.3,,,,
+Unregulated,Radium-226,pCi/L,,,0.6,, <0.1-0.97,,,,
+Unregulated,Radium-228,pCi/L,,,0.79,, <0.6-1.3,,,,
 Unregulated,Strontium,ppb,,,320,, 280-380,,,,
 Unregulated,Sulfate,ppm,,,74,, 13.8-220,,,,
 Unregulated,Vanadium,ppb,,,3.74,, 1.7-5.0,,,,
